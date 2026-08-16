@@ -83,7 +83,7 @@ h1,h2,h3{font-family:var(--display);text-transform:uppercase;letter-spacing:0.01
 .hero__lead{margin:0 0 34px;font-size:20px;line-height:1.55;color:var(--on-dark-soft);max-width:620px;text-wrap:pretty}
 .hero__actions{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center}
 
-.callbtn{background:var(--red);color:#fff;padding:20px 34px;display:inline-flex;flex-direction:column;gap:4px}
+.callbtn{background:var(--red);color:#fff;padding:20px 34px;display:inline-flex;flex-direction:column;gap:4px;border-radius:4px}
 .callbtn:hover{background:var(--red-dark);color:#fff}
 .callbtn__num{font-family:var(--display);font-size:27px;font-weight:600;letter-spacing:0.03em}
 .callbtn__sub{font-family:var(--display);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.9}
@@ -135,8 +135,8 @@ h1,h2,h3{font-family:var(--display);text-transform:uppercase;letter-spacing:0.01
 .linkgold:hover{color:var(--gold)}
 .docs{padding:56px 0 56px 56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
 .doc{position:relative;min-height:260px;background:var(--slate-deep)}
-.doc img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.doc[data-empty] img{display:none}
+.doc img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:1}
+img.is-broken{display:none}
 .doc[data-empty]::after{
   content:attr(data-empty);position:absolute;inset:12px;display:flex;align-items:center;justify-content:center;
   text-align:center;padding:12px;border:1px dashed rgba(255,255,255,0.28);color:var(--on-dark-faint);
@@ -161,7 +161,7 @@ h1,h2,h3{font-family:var(--display);text-transform:uppercase;letter-spacing:0.01
 .cta__tel:hover{color:var(--ink)}
 .cta__tel--alt{font-size:22px;font-weight:400;color:var(--red-pale)}
 .cta__tg{border:1px solid rgba(255,255,255,0.55);color:#fff;font-family:var(--display);font-size:14px;
-  letter-spacing:0.14em;text-transform:uppercase;padding:14px 24px;text-align:center;margin-top:6px}
+  letter-spacing:0.14em;text-transform:uppercase;padding:14px 24px;text-align:center;margin-top:6px;border-radius:4px}
 .cta__tg:hover{background:#fff;color:var(--red)}
 
 /* ---------- Footer ---------- */
@@ -179,6 +179,8 @@ h1,h2,h3{font-family:var(--display);text-transform:uppercase;letter-spacing:0.01
 .foot__addr{font-size:14.5px;line-height:1.6;color:var(--on-dark-dim)}
 .foot__bar{max-width:1280px;margin:0 auto;padding:20px var(--pad) 40px;border-top:1px solid var(--hairline-dark);
   display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-size:12px;color:var(--on-dark-faint)}
+.foot__by a{font-size:12px;color:var(--on-dark-dim);border-bottom:1px solid var(--hairline-dark);padding-bottom:1px}
+.foot__by a:hover{color:var(--gold);border-bottom-color:var(--gold)}
 
 /* ---------- Responsive ---------- */
 @media (max-width:1080px){
@@ -332,10 +334,10 @@ h1,h2,h3{font-family:var(--display);text-transform:uppercase;letter-spacing:0.01
     </div>
     <div class="docs">
       <figure class="doc" data-empty="Разрешение ГТК">
-        <img src="img/license-gtk.jpg" alt="Разрешение ГТК Республики Узбекистан №04-05/20-4360" data-slot loading="lazy">
+        <img src="img/license-gtk.jpg" alt="Разрешение ГТК Республики Узбекистан №04-05/20-4360" data-slot>
       </figure>
       <figure class="doc" data-empty="Гувоҳнома">
-        <img src="img/guvohnoma.jpg" alt="Гувоҳнома — свидетельство таможенного представителя" data-slot loading="lazy">
+        <img src="img/guvohnoma.jpg" alt="Гувоҳнома — свидетельство таможенного представителя" data-slot>
       </figure>
     </div>
   </div>
@@ -367,7 +369,6 @@ h1,h2,h3{font-family:var(--display);text-transform:uppercase;letter-spacing:0.01
     </div>
     <div class="cta__calls">
       <a class="cta__tel" href="tel:+998957006216">+998 95 700-62-16</a>
-      <a class="cta__tel cta__tel--alt" href="tel:+998977006216">+998 97 700-62-16</a>
       <a class="cta__tg" href="https://t.me/MB_Customs_Broker" target="_blank" rel="noopener">Написать в Telegram</a>
     </div>
   </div>
@@ -399,7 +400,6 @@ h1,h2,h3{font-family:var(--display);text-transform:uppercase;letter-spacing:0.01
     <div class="foot__col">
       <span class="foot__label">Связаться</span>
       <a class="foot__tel" href="tel:+998957006216">+998 95 700-62-16</a>
-      <a class="foot__tel" href="tel:+998977006216">+998 97 700-62-16</a>
       <a href="https://t.me/MB_Customs_Broker" target="_blank" rel="noopener">Telegram: @MB_Customs_Broker</a>
       <a href="mailto:info@raztamojka.uz">info@raztamojka.uz</a>
       <span class="foot__addr">г. Ташкент, Яшнабадский р-н, ул. Корасув, 4</span>
@@ -407,25 +407,24 @@ h1,h2,h3{font-family:var(--display);text-transform:uppercase;letter-spacing:0.01
   </div>
   <div class="foot__bar">
     <span>© 2026 М-Брокерс</span>
+    <span class="foot__by">Сайт и продвижение — <a href="https://sales-hub.uz/?utm_source=m-brokers.uz&amp;utm_medium=referral&amp;utm_campaign=footer" target="_blank" rel="noopener">Sales HUB</a></span>
     <span>ООО «Marishka Brok»</span>
   </div>
 </footer>
 
 <script>
-/* Пока фото не загружены — прячем битые картинки, показываем плейсхолдер слота. */
+/* Слот с картинкой: загрузилась — убираем плейсхолдер, не загрузилась — прячем битую картинку. */
 document.querySelectorAll('img[data-slot]').forEach(function(img){
-  img.addEventListener('error', function(){
+  var fill = function(){
+    if (!img.naturalWidth) return;
+    img.classList.remove('is-broken');
     var doc = img.closest('.doc');
-    if (doc) { doc.setAttribute('data-empty', doc.getAttribute('data-empty') || ''); }
-    else { img.style.display = 'none'; }
-  });
-  if (img.complete && img.naturalWidth === 0) img.dispatchEvent(new Event('error'));
-});
-/* Слот заполнен — убираем плейсхолдер. */
-document.querySelectorAll('.doc img[data-slot]').forEach(function(img){
-  var done = function(){ if (img.naturalWidth > 0) img.closest('.doc').removeAttribute('data-empty'); };
-  img.addEventListener('load', done);
-  if (img.complete) done();
+    if (doc) doc.removeAttribute('data-empty');
+  };
+  var fail = function(){ img.classList.add('is-broken'); };
+  img.addEventListener('load', fill);
+  img.addEventListener('error', fail);
+  if (img.complete) (img.naturalWidth ? fill : fail)();
 });
 </script>
 </body>
