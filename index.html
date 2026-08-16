@@ -11,11 +11,16 @@
 <meta property="og:description" content="Код ТН ВЭД и полную сумму платежей называем до сделки. Декларируем от вашего имени и отвечаем за оформление по договору.">
 <meta property="og:locale" content="ru_RU">
 
+<link rel="alternate" hreflang="ru" href="https://m-brokers.uz/">
+<link rel="alternate" hreflang="uz" href="https://m-brokers.uz/uz/">
+<link rel="alternate" hreflang="x-default" href="https://m-brokers.uz/">
+<link rel="canonical" href="https://m-brokers.uz/">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="site.css?v=3">
+<link rel="stylesheet" href="site.css?v=5">
 </head>
 <body>
 
@@ -33,7 +38,13 @@
         <a href="about.html">Компания</a>
         <a href="contacts.html">Контакты</a>
       </nav>
+      <div class="topbar__right">
+      <div class="lang" role="group" aria-label="Язык">
+        <span class="lang__item is-active" aria-current="true">RU</span>
+        <a class="lang__item" href="/uz/" hreflang="uz" lang="uz">OZ</a>
+      </div>
       <a class="topbar__tel" href="tel:+998957006216">+998 95 700-62-16</a>
+    </div>
     </div>
 
     <div class="hero__body">
@@ -259,5 +270,6 @@ document.querySelectorAll('img[data-slot]').forEach(function(img){
   if (img.complete) (img.naturalWidth ? fill : fail)();
 });
 </script>
+<script src="sticky.js" defer></script>
 </body>
 </html>
