@@ -226,6 +226,9 @@ img.is-broken{display:none}
 @media (max-width:720px){
   :root{--pad:20px}
   .hero,.hero__inner{min-height:0}
+  /* на узком экране берём пустую часть кадра, а не середину надписи */
+  .hero__media img{object-position:22% center}
+  .hero__scrim{background:linear-gradient(180deg,rgba(27,34,41,0.93) 0%,rgba(27,34,41,0.87) 50%,rgba(27,34,41,0.92) 100%)}
   .topbar{gap:14px 20px;padding:20px var(--pad)}
   .logo{font-size:21px}
   .topbar__tel{font-size:19px}
