@@ -15,209 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --paper:#EDEFF1;
-  --ink:#1B2229;
-  --slate:#2C3742;
-  --slate-deep:#26303A;
-  --red:#B23A2B;
-  --red-dark:#96301F;
-  --red-pale:#F6DCD7;
-  --gold:#E8B33A;
-  --muted:#4E5F6D;
-  --muted-2:#7A8994;
-  --on-dark:#B7C4CE;
-  --on-dark-soft:#C9D4DC;
-  --on-dark-nav:#DCE3E8;
-  --on-dark-label:#9FB0BE;
-  --on-dark-dim:#8496A3;
-  --on-dark-faint:#6C7E8C;
-  --rule:#C2CBD2;
-  --hover-tint:#E4E8EB;
-  --hairline-dark:#313D47;
-  --pad:44px;
-  --display:Oswald,system-ui,sans-serif;
-}
-
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:Archivo,system-ui,sans-serif;
-  -webkit-font-smoothing:antialiased;
-  font-variant-numeric:tabular-nums;
-}
-img{display:block;max-width:100%}
-a{color:var(--ink);text-decoration:none}
-a:hover{color:var(--red)}
-h1,h2,h3{font-family:var(--display);text-transform:uppercase;letter-spacing:0.01em}
-.wrap{max-width:1280px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
-.eyebrow{font-family:var(--display);font-size:12px;letter-spacing:0.18em;text-transform:uppercase}
-
-/* ---------- Hero ---------- */
-.hero{position:relative;min-height:660px;background:var(--slate);color:#fff;overflow:hidden}
-.hero__media{position:absolute;inset:0}
-.hero__media img{width:100%;height:100%;object-fit:cover}
-.hero__scrim{position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(90deg,rgba(27,34,41,0.94) 0%,rgba(27,34,41,0.78) 42%,rgba(27,34,41,0.25) 100%)}
-.hero__inner{position:relative;display:flex;flex-direction:column;min-height:660px}
-
-.topbar{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between;
-  padding:26px var(--pad);border-bottom:1px solid rgba(255,255,255,0.18)}
-.logo{font-family:var(--display);font-size:25px;font-weight:600;letter-spacing:0.14em;color:#fff}
-.topnav{display:flex;flex-wrap:wrap;gap:10px 28px;font-family:var(--display);font-size:14px;
-  font-weight:400;letter-spacing:0.14em;text-transform:uppercase}
-.topnav a{color:var(--on-dark-nav)}
-.topnav a:hover{color:var(--gold)}
-.topbar__tel{font-family:var(--display);font-size:22px;font-weight:500;letter-spacing:0.04em;color:#fff}
-.topbar__tel:hover{color:var(--gold)}
-
-.hero__body{flex:1;display:flex;align-items:center;padding:56px var(--pad)}
-.hero__col{max-width:820px}
-.hero__kicker{font-family:var(--display);font-size:14px;letter-spacing:0.24em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:20px}
-.hero h1{margin:0 0 26px;font-size:clamp(46px,7vw,104px);line-height:0.94;font-weight:700;color:#fff;text-wrap:balance}
-.hero__lead{margin:0 0 34px;font-size:20px;line-height:1.55;color:var(--on-dark-soft);max-width:620px;text-wrap:pretty}
-.hero__actions{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center}
-
-.callbtn{background:var(--red);color:#fff;padding:20px 34px;display:inline-flex;flex-direction:column;gap:4px;border-radius:4px}
-.callbtn:hover{background:var(--red-dark);color:#fff}
-.callbtn__num{font-family:var(--display);font-size:27px;font-weight:600;letter-spacing:0.03em}
-.callbtn__sub{font-family:var(--display);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.9}
-.tglink{font-family:var(--display);font-size:14px;letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--on-dark-nav);border-bottom:1px solid rgba(255,255,255,0.45);padding-bottom:5px}
-.tglink:hover{color:var(--gold)}
-
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  border-top:1px solid rgba(255,255,255,0.18);background:rgba(27,34,41,0.55)}
-.fact{padding:20px var(--pad);display:flex;flex-direction:column;gap:5px}
-.fact dt{color:var(--on-dark-label)}
-.fact dd{margin:0;font-family:var(--display);font-size:21px;font-weight:500;color:#fff}
-
-/* ---------- Problems ---------- */
-.problems{padding:76px var(--pad) 40px;max-width:1280px;margin:0 auto}
-.problems h2{margin:0 0 44px;font-size:clamp(30px,4vw,54px);line-height:1;font-weight:600;max-width:800px;text-wrap:balance}
-.problems__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:0 48px}
-.problem{padding:24px 0;border-top:3px solid var(--ink)}
-.problem__head{display:flex;gap:14px;align-items:baseline}
-.problem__num{font-family:var(--display);font-size:15px;color:var(--red)}
-.problem h3{margin:0;font-size:22px;font-weight:500;letter-spacing:0.02em}
-.problem p{margin:10px 0 0;font-size:16px;line-height:1.58;color:var(--muted);text-wrap:pretty}
-
-/* ---------- Services ---------- */
-.services{max-width:1280px;margin:0 auto;padding:40px var(--pad) 76px}
-.services__head{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:baseline;justify-content:space-between;margin-bottom:12px}
-.services__head h2{margin:0;font-size:clamp(30px,4vw,54px);line-height:1;font-weight:600}
-.linkmore{font-family:var(--display);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;
-  border-bottom:2px solid var(--red);padding-bottom:4px}
-.srow{display:grid;grid-template-columns:minmax(240px,1fr) minmax(260px,1.4fr) auto;gap:16px 40px;
-  align-items:baseline;padding:26px 0;border-top:1px solid var(--rule)}
-.srow:first-of-type{border-top:3px solid var(--ink)}
-.srow:last-of-type{border-bottom:3px solid var(--ink)}
-.srow:hover{background:var(--hover-tint)}
-.srow h3{margin:0;font-size:27px;font-weight:500;letter-spacing:0.02em}
-.srow p{margin:0;font-size:16px;line-height:1.58;color:var(--muted);text-wrap:pretty}
-.srow__cta{font-family:var(--display);font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--red)}
-
-/* ---------- Status / licences ---------- */
-.status{background:var(--slate);color:#fff}
-.status__grid{max-width:1280px;margin:0 auto;padding:0 var(--pad);
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
-.status__text{padding:72px 56px 72px 0}
-.status__text h2{margin:0 0 22px;font-size:clamp(28px,3.6vw,46px);line-height:1.05;font-weight:600;text-wrap:balance}
-.status__text p{margin:0 0 18px;font-size:17px;line-height:1.65;color:var(--on-dark);max-width:520px;text-wrap:pretty}
-.status__text p+p{margin-bottom:30px}
-.linkgold{color:#fff;font-family:var(--display);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;
-  border-bottom:2px solid var(--gold);padding-bottom:4px;display:inline-block}
-.linkgold:hover{color:var(--gold)}
-.docs{padding:56px 0 56px 56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
-.doc{position:relative;min-height:260px;background:var(--slate-deep)}
-.doc img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:1}
-img.is-broken{display:none}
-.doc[data-empty]::after{
-  content:attr(data-empty);position:absolute;inset:12px;display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:12px;border:1px dashed rgba(255,255,255,0.28);color:var(--on-dark-faint);
-  font-family:var(--display);font-size:12px;letter-spacing:0.16em;text-transform:uppercase}
-
-/* ---------- Clients ---------- */
-.clients{max-width:1280px;margin:0 auto;padding:72px var(--pad)}
-.clients h2{margin:0 0 12px;font-size:clamp(30px,4vw,54px);line-height:1;font-weight:600}
-.clients__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:0 48px}
-.quote{margin:0;padding:28px 0;border-top:3px solid var(--ink)}
-.quote blockquote{margin:0 0 14px;font-size:17px;line-height:1.6;color:var(--ink);text-wrap:pretty}
-.quote figcaption{font-family:var(--display);font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted-2)}
-
-/* ---------- CTA ---------- */
-.cta{background:var(--red);color:#fff}
-.cta__grid{max-width:1280px;margin:0 auto;padding:56px var(--pad);
-  display:flex;flex-wrap:wrap;gap:28px 48px;align-items:center;justify-content:space-between}
-.cta h2{margin:0 0 10px;font-size:clamp(26px,3.2vw,42px);line-height:1.05;font-weight:600;text-wrap:balance}
-.cta p{margin:0;font-size:17px;line-height:1.6;color:var(--red-pale);max-width:520px;text-wrap:pretty}
-.cta__calls{display:flex;flex-direction:column;gap:10px}
-.cta__tel{font-family:var(--display);font-size:clamp(30px,3.6vw,44px);font-weight:600;letter-spacing:0.03em;color:#fff;line-height:1.05}
-.cta__tel:hover{color:var(--ink)}
-.cta__tel--alt{font-size:22px;font-weight:400;color:var(--red-pale)}
-.cta__tg{border:1px solid rgba(255,255,255,0.55);color:#fff;font-family:var(--display);font-size:14px;
-  letter-spacing:0.14em;text-transform:uppercase;padding:14px 24px;text-align:center;margin-top:6px;border-radius:4px}
-.cta__tg:hover{background:#fff;color:var(--red)}
-
-/* ---------- Footer ---------- */
-.foot{background:var(--ink);color:var(--on-dark)}
-.foot__grid{max-width:1280px;margin:0 auto;padding:52px var(--pad) 24px;
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px}
-.foot__col{display:flex;flex-direction:column;gap:11px}
-.foot__brand{font-family:var(--display);font-size:22px;font-weight:600;letter-spacing:0.12em;color:#fff}
-.foot__about{margin:0;font-size:14.5px;line-height:1.6;color:var(--on-dark-dim);max-width:280px;text-wrap:pretty}
-.foot__legal{font-size:12px;line-height:1.6;color:var(--on-dark-faint)}
-.foot__label{font-family:var(--display);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--on-dark-faint)}
-.foot a{color:var(--on-dark);font-size:15px}
-.foot a:hover{color:var(--gold)}
-.foot__tel{color:#fff !important;font-family:var(--display);font-size:22px !important;font-weight:500;letter-spacing:0.03em}
-.foot__addr{font-size:14.5px;line-height:1.6;color:var(--on-dark-dim)}
-.foot__bar{max-width:1280px;margin:0 auto;padding:20px var(--pad) 40px;border-top:1px solid var(--hairline-dark);
-  display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-size:12px;color:var(--on-dark-faint)}
-.foot__by a{font-size:12px;color:var(--on-dark-dim);border-bottom:1px solid var(--hairline-dark);padding-bottom:1px}
-.foot__by a:hover{color:var(--gold);border-bottom-color:var(--gold)}
-
-/* ---------- Responsive ---------- */
-@media (max-width:1080px){
-  .status__text{padding:64px 40px 64px 0}
-  .docs{padding:40px 0 56px 40px}
-}
-@media (max-width:860px){
-  .status__grid{grid-template-columns:1fr}
-  .status__text{padding:56px 0 32px}
-  .docs{padding:0 0 56px}
-  .srow{grid-template-columns:1fr;gap:10px;padding:22px 0}
-  .srow__cta{justify-self:start}
-}
-@media (max-width:720px){
-  :root{--pad:20px}
-  .hero,.hero__inner{min-height:0}
-  .topbar{gap:14px 20px;padding:20px var(--pad)}
-  .logo{font-size:21px}
-  .topbar__tel{font-size:19px}
-  .topnav{gap:8px 18px;font-size:13px;order:3;width:100%}
-  .hero__body{padding:44px var(--pad) 48px}
-  .hero__lead{font-size:18px}
-  .callbtn{padding:18px 24px;width:100%}
-  .callbtn__num{font-size:24px}
-  .facts{grid-template-columns:1fr}
-  .fact{padding:16px var(--pad)}
-  .problems{padding:56px var(--pad) 28px}
-  .problems h2{margin-bottom:28px}
-  .services{padding:28px var(--pad) 56px}
-  .docs{grid-template-columns:1fr;gap:14px}
-  .doc{min-height:220px}
-  .clients{padding:56px var(--pad)}
-  .cta__grid{padding:44px var(--pad)}
-  .foot__grid{padding:44px var(--pad) 20px;gap:32px}
-  .foot__bar{padding:18px var(--pad) 32px}
-}
-</style>
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
 
@@ -358,6 +156,44 @@ img.is-broken{display:none}
       <blockquote>«Перед Новым годом срочно нужно было получить груз. Обратился из-за сроков оформления. Не подвели.»</blockquote>
       <figcaption>Рустам Гафуров</figcaption>
     </figure>
+  </div>
+</section>
+
+<section class="place" id="place">
+  <h2>Офис</h2>
+  <div class="place__grid">
+    <dl class="place__facts">
+      <div class="place__row">
+        <dt>Адрес</dt>
+        <dd>г. Ташкент, Яшнабадский район,<br>ул. Корасув, 4</dd>
+      </div>
+      <div class="place__row">
+        <dt>Ориентир</dt>
+        <dd class="place__note">Дворец Авиастроителей</dd>
+      </div>
+      <div class="place__row">
+        <dt>Приём звонков</dt>
+        <dd><a class="place__tel" href="tel:+998957006216">+998 95 700-62-16</a><br><span class="place__note">Пн–Сб 9:00–18:00</span></dd>
+      </div>
+      <div class="place__row">
+        <dt>Telegram</dt>
+        <dd><a href="https://t.me/MB_Customs_Broker" target="_blank" rel="noopener">@MB_Customs_Broker</a></dd>
+      </div>
+      <div class="place__row">
+        <dt>Подробно</dt>
+        <dd><a class="linkmore" href="contacts.html">Страница контактов</a></dd>
+      </div>
+    </dl>
+    <div>
+      <div class="map">
+        <div class="map__fallback">
+          <strong>ул. Корасув, 4</strong>
+          <span>Яшнабадский район, Ташкент<br>ориентир — дворец Авиастроителей</span>
+        </div>
+        <iframe src="https://yandex.uz/map-widget/v1/?ll=69.341031%2C41.293607&amp;z=17&amp;pt=69.341031,41.293607,pm2rdm" title="Офис М-Брокерс на карте Ташкента" allowfullscreen></iframe>
+      </div>
+      <a class="map__link" href="https://yandex.uz/maps/-/CDehMUNT" target="_blank" rel="noopener">Открыть в Яндекс.Картах</a>
+    </div>
   </div>
 </section>
 
