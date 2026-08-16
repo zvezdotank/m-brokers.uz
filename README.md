@@ -7,8 +7,12 @@
 
 - `index.html` — главная. Собрана из макета Claude Design (`Home.dc.html`,
   проект «Marishka Brok сайт дизайн»).
+- `about.html` — о компании: чем таможенный представитель отличается от посредника,
+  документы, реквизиты, отзывы.
 - `contacts.html` — контакты: телефон, Telegram, почта, реквизиты, карта проезда.
-- `site.css` — общие стили обеих страниц.
+- `site.css` — общие стили всех страниц. При правке стилей поднимайте версию
+  в `href="site.css?v=N"` во всех html, иначе у вернувшихся посетителей
+  останется старый файл из кеша.
 
 Без сборки и зависимостей, просто статика. Шрифты Oswald + Archivo с Google Fonts,
 карта — виджет Яндекса (координаты 41.293607, 69.341031).
@@ -48,8 +52,10 @@
 файлы — до их появления это 404:
 
 `services.html`, `services-broker.html`, `services-clearance.html`,
-`services-certification.html`, `services-warehouse.html`,
-`about.html`, `cases.html`, `faq.html`
+`services-certification.html`, `services-warehouse.html`
+
+Пункты «Практика» и «Вопросы» из меню убраны — страниц под них нет.
+«Услуги» в меню пока ведёт в 404.
 
 Макеты всех этих страниц лежат в том же проекте Claude Design.
 
