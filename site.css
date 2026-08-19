@@ -370,3 +370,60 @@ img.is-broken{display:none}
   .leadblock__grid{padding:44px var(--pad)}
   .lead input{flex:1 1 100%}
 }
+
+/* ---------- Внутренняя страница услуги ---------- */
+.block{max-width:1280px;margin:0 auto;padding:56px var(--pad) 0}
+.block:last-of-type{padding-bottom:56px}
+.block h2{margin:0 0 8px;font-size:clamp(26px,3.4vw,44px);line-height:1.05;font-weight:600;text-wrap:balance}
+.block__note{margin:0 0 28px;font-size:17px;line-height:1.6;color:var(--muted);max-width:680px;text-wrap:pretty}
+
+/* нумерованные шаги */
+.steps{list-style:none;margin:0;padding:0;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0 44px}
+.steps li{padding:22px 0;border-top:3px solid var(--ink)}
+.steps b{display:block;font-family:var(--display);font-size:15px;color:var(--red);margin-bottom:8px}
+.steps h3{margin:0 0 8px;font-size:20px;font-weight:500;letter-spacing:0.02em}
+.steps p{margin:0;font-size:16px;line-height:1.55;color:var(--muted);text-wrap:pretty}
+
+/* что входит / что прислать */
+.ticks{list-style:none;margin:0;padding:0;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px 44px}
+.ticks li{position:relative;padding-left:26px;font-size:17px;line-height:1.55;color:var(--ink);text-wrap:pretty}
+.ticks li::before{content:"";position:absolute;left:0;top:10px;width:12px;height:2px;background:var(--red)}
+.ticks li span{display:block;font-size:15px;color:var(--muted);margin-top:2px}
+
+/* документы-плашки */
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.tags li{border:1px solid var(--rule);background:#fff;padding:12px 16px;border-radius:4px;
+  font-size:15px;line-height:1.4;color:var(--ink)}
+.tags li b{display:block;font-family:var(--display);font-size:13px;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--red);margin-bottom:3px}
+
+/* вопросы-ответы */
+.faq{border-top:3px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;position:relative;
+  font-family:var(--display);font-size:20px;font-weight:500;letter-spacing:0.02em;
+  text-transform:uppercase;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:13px;height:2px;
+  background:var(--red);transform:translateY(-50%)}
+.faq summary::before{content:"";position:absolute;right:11px;top:50%;width:2px;height:13px;
+  background:var(--red);transform:translateY(-50%);transition:opacity 0.15s}
+.faq details[open] summary::before{opacity:0}
+.faq summary:hover{color:var(--red)}
+.faq p{margin:0 0 20px;font-size:17px;line-height:1.65;color:var(--muted);max-width:760px;text-wrap:pretty}
+
+/* соседние услуги */
+.also{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 44px}
+.also a{padding:22px 0;border-top:3px solid var(--ink);display:block}
+.also a:hover{color:var(--red)}
+.also b{display:block;font-family:var(--display);font-size:20px;font-weight:500;
+  text-transform:uppercase;letter-spacing:0.02em;margin-bottom:6px}
+.also span{font-size:15px;line-height:1.55;color:var(--muted)}
+
+@media (max-width:720px){
+  .block{padding:44px var(--pad) 0}
+  .block:last-of-type{padding-bottom:44px}
+  .faq summary{font-size:18px}
+}
