@@ -196,23 +196,15 @@ img.is-broken{display:none}
 .place__row dd a:hover{border-bottom-color:var(--red)}
 .place__tel{font-family:var(--display);font-size:27px;font-weight:600;letter-spacing:0.03em;color:var(--ink)}
 .place__note{font-size:15px;line-height:1.55;color:var(--muted)}
-.map{position:relative;min-height:380px;background:var(--hover-tint);border:1px solid var(--rule);overflow:hidden}
-.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;z-index:1;
-  filter:saturate(0.72) contrast(1.04)}
-/* Подложка под картой: видна, если Яндекс недоступен */
-.map__fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:10px;text-align:center;padding:28px;color:var(--muted)}
-.map__fallback strong{font-family:var(--display);font-size:17px;font-weight:500;letter-spacing:0.02em;
-  text-transform:uppercase;color:var(--ink)}
-.map__fallback span{font-size:15px;line-height:1.55}
-.map__load{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;
-  border:1px solid var(--rule);background:#fff;color:var(--ink);cursor:pointer;
-  font-family:var(--display);font-size:13px;letter-spacing:0.14em;text-transform:uppercase;
-  padding:12px 22px;border-radius:4px}
-.map__load:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-.map.is-loaded .map__fallback{display:none}
-.map__link{display:inline-block;margin-top:12px;font-family:var(--display);font-size:13px;letter-spacing:0.16em;
-  text-transform:uppercase;border-bottom:2px solid var(--red);padding-bottom:4px}
+.mapbox{display:block}
+.mapbox__pic{display:block;border:1px solid var(--rule);overflow:hidden;background:var(--hover-tint)}
+.mapbox__pic img{width:100%;height:auto;display:block}
+.mapbox__pic:hover{border-color:var(--ink)}
+.mapbox__links{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.mapbox__links a{display:flex;align-items:center;justify-content:center;text-align:center;
+  border:1px solid var(--rule);background:#fff;padding:12px 8px;border-radius:4px;
+  font-family:var(--display);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink)}
+.mapbox__links a:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
 
 /* ---------- Внутренняя страница ---------- */
 .pagehead{background:var(--slate);color:#fff}
@@ -291,12 +283,14 @@ img.is-broken{display:none}
   .problems{padding:56px var(--pad) 28px}
   .problems h2{margin-bottom:28px}
   .services{padding:28px var(--pad) 56px}
-  .docs{grid-template-columns:1fr;gap:14px}
-  .doc[data-empty]{min-height:220px}
+  /* документы в две колонки: сканы среднего качества, во всю ширину
+     экрана видны все их дефекты */
+  .docs{grid-template-columns:1fr 1fr;gap:10px}
+  .doc[data-empty]{min-height:150px}
   .clients{padding:56px var(--pad)}
   .place{padding:0 var(--pad) 56px}
   .place__grid{grid-template-columns:1fr;gap:28px}
-  .map{min-height:300px}
+  .mapbox__links a{font-size:11px;letter-spacing:0.06em;padding:12px 4px}
   .pagehead__body{padding:40px var(--pad) 48px}
   .contact__grid{padding:44px var(--pad) 12px}
   .cta__grid{padding:44px var(--pad)}
@@ -427,3 +421,21 @@ img.is-broken{display:none}
   .block:last-of-type{padding-bottom:44px}
   .faq summary{font-size:18px}
 }
+
+/* ---------- Форма в модальном окне ---------- */
+.leadmodal{border:0;padding:0;max-width:460px;width:calc(100% - 32px);
+  background:var(--slate);color:#fff;border-radius:6px;
+  padding:28px 24px 24px;position:relative}
+.leadmodal::backdrop{background:rgba(15,20,25,0.72)}
+.leadmodal h2{margin:0 0 10px;font-size:26px;line-height:1.1;font-weight:600}
+.leadmodal p{margin:0 0 18px;font-size:16px;line-height:1.55;color:var(--on-dark)}
+.leadmodal .lead{display:block}
+.leadmodal__close{position:absolute;top:8px;right:10px;border:0;background:none;cursor:pointer;
+  color:var(--on-dark-label);font-size:32px;line-height:1;padding:6px 10px}
+.leadmodal__close:hover{color:#fff}
+
+/* ---------- Нижняя панель: звонок и заявка ---------- */
+.callbar__lead{flex:1;border:0;cursor:pointer;background:var(--slate);color:#fff;
+  font-family:var(--display);font-size:15px;letter-spacing:0.1em;text-transform:uppercase;
+  padding:15px 10px}
+.callbar__lead:active{background:var(--slate-deep)}

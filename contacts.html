@@ -23,7 +23,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/oswald.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/inter.woff2">
-<link rel="stylesheet" href="site.css?v=12">
+<link rel="stylesheet" href="site.css?v=13">
 </head>
 <body>
 
@@ -97,14 +97,21 @@
       </div>
     </dl>
     <div>
-      <div class="map">
-        <div class="map__fallback">
-          <strong>ул. Корасув, 4</strong>
-          <span>Яшнабадский район, Ташкент<br>ориентир — дворец Авиастроителей</span>
+      <div class="mapbox">
+        <a class="mapbox__pic" href="https://yandex.uz/maps/?pt=69.341031,41.293607&amp;z=17&amp;l=map" target="_blank" rel="noopener">
+          <picture>
+            <source type="image/webp" srcset="img/map-700.webp 700w, img/map-1400.webp 1400w" sizes="(max-width:860px) 100vw, 640px">
+            <img src="img/map-700.jpg" srcset="img/map-700.jpg 700w, img/map-1400.jpg 1400w"
+                 sizes="(max-width:860px) 100vw, 640px" width="1400" height="933"
+                 alt="Карта: офис М-Брокерс на улице Корасув, 4 в Ташкенте" loading="lazy" decoding="async">
+          </picture>
+        </a>
+        <div class="mapbox__links">
+        <a href="https://yandex.uz/maps/?pt=69.341031,41.293607&amp;z=17&amp;l=map" target="_blank" rel="noopener">Яндекс.Карты</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=41.293607,69.341031" target="_blank" rel="noopener">Google Карты</a>
+        <a href="https://maps.apple.com/?ll=41.293607,69.341031&amp;q=%D0%9C-%D0%91%D1%80%D0%BE%D0%BA%D0%B5%D1%80%D1%81" target="_blank" rel="noopener">Apple Карты</a>
         </div>
-        <button class="map__load" type="button" data-map="https://yandex.uz/map-widget/v1/?ll=69.341031%2C41.293607&amp;z=17&amp;pt=69.341031,41.293607,pm2rdm" data-title="Офис М-Брокерс на карте Ташкента">Показать карту</button>
       </div>
-      <a class="map__link" href="https://yandex.uz/maps/-/CDehMUNT" target="_blank" rel="noopener">Открыть в Яндекс.Картах</a>
     </div>
   </div>
 </section>

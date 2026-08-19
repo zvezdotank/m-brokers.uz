@@ -25,7 +25,43 @@
     badPhone: 'Проверьте номер телефона'
   };
 
-  forms.forEach(function (form) {
+  /* Модальное окно с той же формой — для кнопки «Оставить заявку»
+     в нижней панели на телефоне. Берём копию первой формы на странице,
+     чтобы разметка и тексты не разъезжались. */
+  var dlg = null;
+  function buildModal(sample) {
+    dlg = document.createElement('dialog');
+    dlg.className = 'leadmodal';
+    dlg.innerHTML =
+      '<button class="leadmodal__close" type="button" aria-label="' +
+        (uz ? 'Yopish' : 'Закрыть') + '">&times;</button>' +
+      '<h2>' + (uz ? 'Raqamingizni qoldiring' : 'Оставьте номер') + '</h2>' +
+      '<p>' + (uz
+        ? 'Ish vaqtida 15 daqiqa ichida qo\'ng\'iroq qilamiz.'
+        : 'В рабочее время перезваниваем в течение 15 минут.') + '</p>';
+    var copy = sample.cloneNode(true);
+    copy.dataset.place = 'модальное окно';
+    copy.classList.remove('is-ready');
+    dlg.appendChild(copy);
+    document.body.appendChild(dlg);
+    dlg.querySelector('.leadmodal__close').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    bind(copy);
+    copy.classList.add('is-ready');
+    return copy;
+  }
+
+  window.mbOpenLead = function () {
+    if (!dlg) buildModal(forms[0]);
+    if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+    var first = dlg.querySelector('input[name=name]');
+    if (first) setTimeout(function () { first.focus(); }, 50);
+    if (window.mbTrack) window.mbTrack('lead_modal_open', {});
+  };
+
+  forms.forEach(bind);
+
+  function bind(form) {
     form.classList.add('is-ready');
     var btn = form.querySelector('button[type=submit]');
     var btnText = btn.textContent;
@@ -81,5 +117,5 @@
           ' <a href="tel:+998957006216">+998 95 700-62-16</a>';
       });
     });
-  });
+  }
 })();

@@ -26,20 +26,32 @@
     document.body.appendChild(bar);
   }
 
-  /* ---- панель звонка на телефоне ---- */
+  /* ---- нижняя панель на телефоне: звонок и заявка ---- */
   var tel = document.querySelector('a[href^="tel:"]');
   var tg = document.querySelector('a[href*="t.me/"]');
+  var uz = document.documentElement.lang === 'uz';
   if (tel) {
-    var uz = document.documentElement.lang === 'uz';
     callbar = document.createElement('div');
     callbar.className = 'callbar';
-    callbar.innerHTML =
-      '<a class="callbar__call" href="' + tel.getAttribute('href') + '">' +
-        (uz ? 'Qo'ng'iroq qilish' : 'Позвонить') + '</a>' +
-      (tg ? '<a class="callbar__tg" href="' + tg.getAttribute('href') +
-            '" target="_blank" rel="noopener">Telegram</a>' : '');
+    var call = '<a class="callbar__call" href="' + tel.getAttribute('href') + '">' +
+      (uz ? 'Qo\'ng\'iroq qilish' : 'Позвонить') + '</a>';
+    // вторая кнопка открывает форму в модальном окне; если обработчик
+    // заявок не настроен, форма не работает — тогда ведём в Telegram
+    var second;
+    if (window.MB && (window.MB.formEndpoint || '').trim()) {
+      second = '<button class="callbar__lead" type="button">' +
+        (uz ? 'Ariza qoldirish' : 'Оставить заявку') + '</button>';
+    } else if (tg) {
+      second = '<a class="callbar__tg" href="' + tg.getAttribute('href') +
+        '" target="_blank" rel="noopener">Telegram</a>';
+    } else { second = ''; }
+    callbar.innerHTML = call + second;
     document.body.appendChild(callbar);
     document.body.classList.add('has-callbar');
+    var leadBtn = callbar.querySelector('.callbar__lead');
+    if (leadBtn) leadBtn.addEventListener('click', function () {
+      if (window.mbOpenLead) window.mbOpenLead();
+    });
   }
 
   /* ---- общий порог показа ---- */
