@@ -7,5 +7,5 @@ window.MB = {
 
   // Адрес обработчика заявок (Cloudflare Worker), который кладёт лид
   // в Telegram. Токен бота живёт внутри воркера, на сайт не попадает.
-  formEndpoint: ''
+  formEndpoint: 'https://shy-mud-ccf2m-brokeruz.zvezdotank.workers.dev'
 };
