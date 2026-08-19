@@ -1,3 +1,14 @@
+/* Самохостинг шрифтов: убирает fonts.googleapis.com и fonts.gstatic.com
+   из критического пути. Вариативные, по файлу на диапазон —
+   браузер тянет только те, чьи символы реально встретились на странице.
+   Inter вместо Archivo: у Archivo нет кириллицы. */
+@font-face{font-family:'Oswald';font-style:normal;font-weight:400 700;font-display:swap;src:url('fonts/oswald-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Oswald';font-style:normal;font-weight:400 700;font-display:swap;src:url('fonts/oswald-cyrillic.woff2') format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Oswald';font-style:normal;font-weight:400 700;font-display:swap;src:url('fonts/oswald-cyrillic-ext.woff2') format('woff2');unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 600;font-display:swap;src:url('fonts/inter-cyrillic-ext.woff2') format('woff2');unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 600;font-display:swap;src:url('fonts/inter-cyrillic.woff2') format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 600;font-display:swap;src:url('fonts/inter-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
 :root{
   --paper:#EDEFF1;
   --ink:#1B2229;
@@ -28,7 +39,7 @@ body{
   margin:0;
   background:var(--paper);
   color:var(--ink);
-  font-family:Archivo,system-ui,sans-serif;
+  font-family:Inter,system-ui,-apple-system,sans-serif;
   -webkit-font-smoothing:antialiased;
   font-variant-numeric:tabular-nums;
 }
@@ -146,6 +157,7 @@ a.lang__item:hover{color:#fff;border-color:rgba(255,255,255,0.35)}
 /* высоту слота задаёт сам скан — иначе он висит по центру растянутой коробки */
 .doc{position:relative;margin:0;background:var(--slate-deep)}
 .doc[data-empty]{min-height:300px}
+.doc picture{display:block}
 .doc img{display:block;width:100%;height:auto;z-index:1}
 img.is-broken{display:none}
 .doc[data-empty]::after{
@@ -197,6 +209,12 @@ img.is-broken{display:none}
 .map__fallback strong{font-family:var(--display);font-size:17px;font-weight:500;letter-spacing:0.02em;
   text-transform:uppercase;color:var(--ink)}
 .map__fallback span{font-size:15px;line-height:1.55}
+.map__load{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;
+  border:1px solid var(--rule);background:#fff;color:var(--ink);cursor:pointer;
+  font-family:var(--display);font-size:13px;letter-spacing:0.14em;text-transform:uppercase;
+  padding:12px 22px;border-radius:4px}
+.map__load:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.map.is-loaded .map__fallback{display:none}
 .map__link{display:inline-block;margin-top:12px;font-family:var(--display);font-size:13px;letter-spacing:0.16em;
   text-transform:uppercase;border-bottom:2px solid var(--red);padding-bottom:4px}
 
@@ -290,4 +308,35 @@ img.is-broken{display:none}
   .cta__grid{padding:44px var(--pad)}
   .foot__grid{padding:44px var(--pad) 20px;gap:32px}
   .foot__bar{padding:18px var(--pad) 32px}
+}
+
+/* ---------- Страница услуг ---------- */
+.svc{padding:34px 0;border-top:3px solid var(--ink);scroll-margin-top:90px}
+.svc:first-of-type{border-top:3px solid var(--ink)}
+.svc h2{margin:0 0 10px;font-size:clamp(26px,3.2vw,40px);line-height:1.05;font-weight:600}
+.svc__lead{margin:0 0 18px;font-size:18px;line-height:1.55;color:var(--ink);max-width:640px;text-wrap:pretty}
+.svc__list{margin:0;padding:0;list-style:none;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px 44px}
+.svc__list li{position:relative;padding-left:20px;font-size:16px;line-height:1.55;color:var(--muted);text-wrap:pretty}
+.svc__list li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:2px;background:var(--red)}
+
+/* ---------- Мобильная панель звонка ----------
+   Главное целевое действие на телефоне. Появляется вместе с плавающей
+   шапкой, снизу, и не перекрывает подвал: под body добавляется отступ. */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;
+  gap:1px;background:var(--hairline-dark);
+  transform:translateY(100%);transition:transform 0.28s ease}
+.callbar.is-on{transform:translateY(0)}
+.callbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:15px 10px;font-family:var(--display);font-size:15px;letter-spacing:0.1em;
+  text-transform:uppercase;color:#fff}
+.callbar__call{background:var(--red)}
+.callbar__call:active{background:var(--red-dark)}
+.callbar__tg{background:var(--slate)}
+.callbar__tg:active{background:var(--slate-deep)}
+.callbar a:hover{color:#fff}
+@media (prefers-reduced-motion:reduce){.callbar{transition:none}}
+@media (max-width:720px){
+  .callbar{display:flex}
+  body.has-callbar{padding-bottom:54px}
 }

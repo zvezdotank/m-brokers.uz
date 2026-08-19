@@ -9,6 +9,10 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="M-Brokers — O'zR DBQ reyestridagi bojxona vakili">
 <meta property="og:description" content="TIF TN kodini va to'lovlarning to'liq summasini bitimgacha aytamiz. Yukni sizning nomingizdan deklaratsiyalaymiz.">
+<meta property="og:image" content="https://m-brokers.uz/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:locale" content="uz_UZ">
 
 <link rel="alternate" hreflang="ru" href="https://m-brokers.uz/">
@@ -16,16 +20,108 @@
 <link rel="alternate" hreflang="x-default" href="https://m-brokers.uz/">
 <link rel="canonical" href="https://m-brokers.uz/uz/">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css?v=5">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../fonts/oswald-latin.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../fonts/inter-latin.woff2">
+<link rel="preload" as="image" type="image/webp" fetchpriority="high"
+  imagesrcset="../img/hero-960.webp 960w, ../img/hero-1440.webp 1440w, ../img/hero-2000.webp 2000w"
+  imagesizes="100vw" href="../img/hero-1440.webp">
+<link rel="stylesheet" href="../site.css?v=8">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "ProfessionalService",
+ "@id": "https://m-brokers.uz/#organization",
+ "name": "М-Брокерс",
+ "legalName": "ООО «Marishka Brok»",
+ "url": "https://m-brokers.uz/",
+ "image": "https://m-brokers.uz/img/og.jpg",
+ "telephone": "+998957006216",
+ "email": "info@raztamojka.uz",
+ "taxID": "303009482",
+ "foundingDate": "2014-07-21",
+ "address": {
+  "@type": "PostalAddress",
+  "streetAddress": "ул. Корасув, 4",
+  "addressLocality": "Ташкент",
+  "addressRegion": "Яшнабадский район",
+  "addressCountry": "UZ"
+ },
+ "geo": {
+  "@type": "GeoCoordinates",
+  "latitude": 41.293607,
+  "longitude": 69.341031
+ },
+ "openingHoursSpecification": [
+  {
+   "@type": "OpeningHoursSpecification",
+   "dayOfWeek": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+   ],
+   "opens": "09:00",
+   "closes": "18:00"
+  }
+ ],
+ "areaServed": {
+  "@type": "Country",
+  "name": "Узбекистан"
+ },
+ "sameAs": [
+  "https://t.me/MB_Customs_Broker"
+ ],
+ "description": "Таможенный представитель в Реестре ГТК Республики Узбекистан. Подбор кода ТН ВЭД, расчёт платежей, декларирование, сертификация, таможенный склад.",
+ "hasOfferCatalog": {
+  "@type": "OfferCatalog",
+  "name": "Услуги",
+  "itemListElement": [
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Таможенный брокер"
+    }
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Таможенное оформление"
+    }
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Сертификация"
+    }
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Складские услуги"
+    }
+   }
+  ]
+ }
+}
+</script>
 </head>
 <body>
 
 <header class="hero">
   <div class="hero__media">
-    <img src="../img/hero-containers.jpg" alt="" data-slot fetchpriority="high">
+    <picture>
+      <source type="image/webp" sizes="100vw" srcset="../img/hero-960.webp 960w, ../img/hero-1440.webp 1440w, ../img/hero-2000.webp 2000w">
+      <img src="../img/hero-1440.jpg" sizes="100vw"
+           srcset="../img/hero-960.jpg 960w, ../img/hero-1440.jpg 1440w, ../img/hero-2000.jpg 2000w"
+           alt="" width="2000" height="1116" fetchpriority="high" decoding="async" data-slot>
+    </picture>
   </div>
   <div class="hero__scrim"></div>
 
@@ -108,22 +204,22 @@
     <a class="linkmore" href="services.html">Barcha xizmatlar</a>
   </div>
 
-  <a class="srow" href="services-broker.html">
+  <a class="srow" href="services.html#broker">
     <h3>Bojxona brokeri</h3>
     <p>Boj stavkalari, operatsiyalarning oqilona sxemalari, TIF TN kodlarini tanlash, tovarlar va transport vositalarini deklaratsiyalash.</p>
     <span class="srow__cta">Ochish</span>
   </a>
-  <a class="srow" href="services-clearance.html">
+  <a class="srow" href="services.html#clearance">
     <h3>Rasmiylashtirish</h3>
     <p>To'liq tozalash sikli: hujjatlar, bojxona qiymati va to'lovlarni hisoblash, yuk chiqarilgunga qadar tartiblarni nazorat qilish.</p>
     <span class="srow__cta">Ochish</span>
   </a>
-  <a class="srow" href="services-certification.html">
+  <a class="srow" href="services.html#certification">
     <h3>Sertifikatlashtirish</h3>
     <p>Sifatni tasdiqlash va sertifikatlashtirish organlari orqali ruxsat beruvchi hujjatlarni olish.</p>
     <span class="srow__cta">Ochish</span>
   </a>
-  <a class="srow" href="services-warehouse.html">
+  <a class="srow" href="services.html#warehouse">
     <h3>Ombor</h3>
     <p>Tovaringiz uchun bojxona omborini tanlaymiz va kelishamiz, yukni maqbul narxda joylashtiramiz.</p>
     <span class="srow__cta">Ochish</span>
@@ -140,10 +236,16 @@
     </div>
     <div class="docs">
       <figure class="doc" data-empty="DBQ ruxsatnomasi">
-        <img src="../img/license-gtk.jpg" alt="O'zbekiston Respublikasi DBQ ruxsatnomasi" data-slot>
+        <picture>
+          <source type="image/webp" srcset="../img/license-gtk.webp">
+          <img src="../img/license-gtk.jpg" alt="O'zbekiston Respublikasi DBQ ruxsatnomasi" width="655" height="900" loading="lazy" decoding="async" data-slot>
+        </picture>
       </figure>
       <figure class="doc" data-empty="Guvohnoma">
-        <img src="../img/guvohnoma.jpg" alt="Guvohnoma — yuridik shaxsni ro'yxatdan o'tkazish to'g'risida" data-slot>
+        <picture>
+          <source type="image/webp" srcset="../img/guvohnoma.webp">
+          <img src="../img/guvohnoma.jpg" alt="Guvohnoma — yuridik shaxsni ro'yxatdan o'tkazish to'g'risida" width="655" height="900" loading="lazy" decoding="async" data-slot>
+        </picture>
       </figure>
     </div>
   </div>
@@ -198,7 +300,7 @@
           <strong>Qorasuv ko'chasi, 4</strong>
           <span>Yashnobod tumani, Toshkent<br>mo'ljal — Aviasozlar saroyi</span>
         </div>
-        <iframe src="https://yandex.uz/map-widget/v1/?ll=69.341031%2C41.293607&amp;z=17&amp;pt=69.341031,41.293607,pm2rdm" title="M-Brokers ofisi Toshkent xaritasida" allowfullscreen></iframe>
+        <button class="map__load" type="button" data-map="https://yandex.uz/map-widget/v1/?ll=69.341031%2C41.293607&amp;z=17&amp;pt=69.341031,41.293607,pm2rdm" data-title="M-Brokers ofisi Toshkent xaritasida">Xaritani ko'rsatish</button>
       </div>
       <a class="map__link" href="https://yandex.uz/maps/-/CDehMUNT" target="_blank" rel="noopener">Yandex Xaritalarda ochish</a>
     </div>
@@ -229,10 +331,10 @@
     </div>
     <div class="foot__col">
       <span class="foot__label">Xizmatlar</span>
-      <a href="services-broker.html">Bojxona brokeri</a>
-      <a href="services-clearance.html">Bojxona rasmiylashtiruvi</a>
-      <a href="services-certification.html">Sertifikatlashtirish</a>
-      <a href="services-warehouse.html">Ombor xizmatlari</a>
+      <a href="services.html#broker">Bojxona brokeri</a>
+      <a href="services.html#clearance">Bojxona rasmiylashtiruvi</a>
+      <a href="services.html#certification">Sertifikatlashtirish</a>
+      <a href="services.html#warehouse">Ombor xizmatlari</a>
     </div>
     <div class="foot__col">
       <span class="foot__label">Kompaniya</span>
