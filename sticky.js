@@ -1,8 +1,8 @@
 /* Интерфейсные мелочи, общие для всех страниц:
    1. Плавающая шапка — дубль исходной, выезжает, когда первый экран ушёл.
-   2. Панель звонка внизу на телефоне — главное целевое действие.
-   3. Карта грузится по клику: виджет Яндекса весит больше всей страницы,
-      а нужен единицам, поэтому в разметке лежит кнопка, а не iframe. */
+   2. Нижняя панель на телефоне: звонок и заявка — целевые действия.
+   Шапка и панель показываются на одном и том же отрезке страницы:
+   после первого экрана и до подвала. */
 (function () {
   'use strict';
 
@@ -60,25 +60,34 @@
   // поверх ещё видимого первого экрана
   var anchor = topbar ? (topbar.closest('.hero, .pagehead') || topbar) : null;
 
+  var foot = document.querySelector('.foot');
+  var until = Infinity;
+
   function measure() {
     if (!anchor) return;
+    // нижняя граница: первый экран ушёл наверх
     threshold = anchor.getBoundingClientRect().bottom + window.pageYOffset - 80;
+    // верхняя: показался подвал. Там уже есть телефон, адрес и Telegram,
+    // и плавающая полоса поверх него только закрывает содержимое
+    if (foot) {
+      var footTop = foot.getBoundingClientRect().top + window.pageYOffset;
+      until = footTop - window.innerHeight;
+      if (until <= threshold) until = Infinity;   // короткая страница
+    }
   }
 
   function update() {
-    var should = window.pageYOffset > threshold;
+    var y = window.pageYOffset;
+    var should = y > threshold && y < until;
     if (should === on) return;
     on = should;
     if (bar) bar.classList.toggle('is-on', on);
     if (callbar) callbar.classList.toggle('is-on', on);
   }
 
-  var ticking = false;
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(function () { update(); ticking = false; });
-  }
+  // без requestAnimationFrame: обработчик делает одно сравнение и
+  // переключение класса, а в фоновой вкладке rAF не вызывается вовсе
+  function onScroll() { update(); }
 
   measure();
   update();
@@ -86,18 +95,19 @@
   window.addEventListener('resize', function () { measure(); update(); });
   window.addEventListener('load', function () { measure(); update(); });
 
-  /* ---- карта по клику ---- */
-  document.querySelectorAll('.map__load').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var frame = document.createElement('iframe');
-      frame.src = btn.getAttribute('data-map');
-      frame.title = btn.getAttribute('data-title') || '';
-      frame.setAttribute('allowfullscreen', '');
-      frame.setAttribute('loading', 'eager');
-      var box = btn.closest('.map');
-      box.appendChild(frame);
-      box.classList.add('is-loaded');
-      btn.remove();
+  /* ---- клавиатура на телефоне ----
+     Панель прибита к низу экрана и при наборе перекрывает поля формы
+     и кнопку отправки. Пока курсор в поле — убираем её. */
+  if (callbar) {
+    document.addEventListener('focusin', function (e) {
+      if (e.target.closest && e.target.closest('form')) callbar.classList.add('is-typing');
     });
-  });
+    document.addEventListener('focusout', function () {
+      setTimeout(function () {
+        var a = document.activeElement;
+        if (!a || !a.closest || !a.closest('form')) callbar.classList.remove('is-typing');
+      }, 80);
+    });
+  }
+
 })();
