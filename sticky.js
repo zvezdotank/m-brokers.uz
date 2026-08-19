@@ -35,7 +35,7 @@
     callbar.className = 'callbar';
     callbar.innerHTML =
       '<a class="callbar__call" href="' + tel.getAttribute('href') + '">' +
-        (uz ? 'Qo’ng’iroq qilish' : 'Позвонить') + '</a>' +
+        (uz ? 'Qo'ng'iroq qilish' : 'Позвонить') + '</a>' +
       (tg ? '<a class="callbar__tg" href="' + tg.getAttribute('href') +
             '" target="_blank" rel="noopener">Telegram</a>' : '');
     document.body.appendChild(callbar);

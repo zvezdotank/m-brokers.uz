@@ -283,11 +283,9 @@ img.is-broken{display:none}
   .topbar__right{gap:14px}
   .lang{font-size:12px}
   .lang__item{padding:4px 7px}
-  /* на телефоне в плавающей шапке оставляем логотип, язык и телефон — меню прячем */
-  .stickybar__in{padding:10px var(--pad);gap:8px 16px}
-  .stickybar .topnav{display:none}
-  .stickybar .logo{font-size:17px}
-  .stickybar .topbar__tel{font-size:17px}
+  /* На телефоне плавающая шапка не нужна: она переносится на две строки
+     и дублирует панель звонка внизу, у которой цели крупнее. */
+  .stickybar{display:none}
   .hero__body{padding:44px var(--pad) 48px}
   .hero__lead{font-size:18px}
   .callbtn{padding:18px 24px;width:100%}
