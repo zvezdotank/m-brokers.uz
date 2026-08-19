@@ -26,7 +26,7 @@
 <link rel="preload" as="image" type="image/webp" fetchpriority="high"
   imagesrcset="../img/hero-960.webp 960w, ../img/hero-1440.webp 1440w, ../img/hero-2000.webp 2000w"
   imagesizes="100vw" href="../img/hero-1440.webp">
-<link rel="stylesheet" href="../site.css?v=10">
+<link rel="stylesheet" href="../site.css?v=11">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -307,6 +307,26 @@
   </div>
 </section>
 
+<section class="leadblock" id="lead">
+  <div class="leadblock__grid">
+    <div>
+      <h2>Raqamingizni qoldiring — qo'ng'iroq qilamiz</h2>
+      <p>Yukingiz bo'yicha TIF TN kodini, to'lovlar summasini va chiqarish muddatini aytamiz. Maslahat bepul va hech narsaga majbur qilmaydi.</p>
+      <p class="leadblock__note">Ish vaqtida 15 daqiqa ichida qo'ng'iroq qilamiz. Shoshilinch bo'lsa — <a href="tel:+998957006216">+998 95 700-62-16</a></p>
+    </div>
+    <form class="lead" data-place="главная" novalidate>
+      <div class="lead__row">
+        <input type="text" name="name" placeholder="Ismingiz" autocomplete="name" maxlength="100">
+        <input type="tel" name="phone" placeholder="+998 __ ___-__-__" autocomplete="tel" inputmode="tel" required maxlength="40">
+      </div>
+      <input class="lead__trap" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit">Qo'ng'iroq kutaman</button>
+      <p class="lead__status"></p>
+      <p class="lead__legal">Tugmani bosish orqali arizaga javob berish uchun raqamingizga ishlov berishga rozilik bildirasiz.</p>
+    </form>
+  </div>
+</section>
+
 <section class="cta">
   <div class="cta__grid">
     <div>
@@ -371,6 +391,9 @@ document.querySelectorAll('img[data-slot]').forEach(function(img){
   if (img.complete) (img.naturalWidth ? fill : fail)();
 });
 </script>
+<script src="../config.js"></script>
+<script src="../analytics.js" defer></script>
+<script src="../form.js" defer></script>
 <script src="../sticky.js" defer></script>
 </body>
 </html>

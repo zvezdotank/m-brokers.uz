@@ -21,7 +21,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/oswald.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/inter.woff2">
-<link rel="stylesheet" href="site.css?v=10">
+<link rel="stylesheet" href="site.css?v=11">
 </head>
 <body>
 
@@ -95,6 +95,26 @@
   </article>
 </section>
 
+<section class="leadblock" id="lead">
+  <div class="leadblock__grid">
+    <div>
+      <h2>Оставьте номер — перезвоним</h2>
+      <p>Назовём код ТН ВЭД, сумму платежей и срок выпуска по вашей поставке. Консультация бесплатная, ни к чему не обязывает.</p>
+      <p class="leadblock__note">В рабочее время перезваниваем в течение 15 минут. Если удобнее сразу — <a href="tel:+998957006216">+998 95 700-62-16</a></p>
+    </div>
+    <form class="lead" data-place="услуги" novalidate>
+      <div class="lead__row">
+        <input type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name" maxlength="100">
+        <input type="tel" name="phone" placeholder="+998 __ ___-__-__" autocomplete="tel" inputmode="tel" required maxlength="40">
+      </div>
+      <input class="lead__trap" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit">Жду звонка</button>
+      <p class="lead__status"></p>
+      <p class="lead__legal">Нажимая кнопку, вы соглашаетесь на обработку номера для ответа на заявку.</p>
+    </form>
+  </div>
+</section>
+
 <section class="cta">
   <div class="cta__grid">
     <div>
@@ -144,6 +164,9 @@
   </div>
 </footer>
 
+<script src="config.js"></script>
+<script src="analytics.js" defer></script>
+<script src="form.js" defer></script>
 <script src="sticky.js" defer></script>
 </body>
 </html>
