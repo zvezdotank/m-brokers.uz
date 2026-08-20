@@ -23,7 +23,10 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../fonts/oswald.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../fonts/inter.woff2">
-<link rel="stylesheet" href="../site.css?v=16">
+<link rel="preload" as="image" type="image/webp" fetchpriority="high"
+  imagesrcset="../img/page-clearance-800.webp 800w, ../img/page-clearance-1600.webp 1600w"
+  imagesizes="100vw" href="../img/page-clearance-800.webp">
+<link rel="stylesheet" href="../site.css?v=17">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -107,7 +110,16 @@
 </head>
 <body>
 
-<header class="pagehead">
+<header class="pagehead pagehead--media">
+  <div class="pagehead__media">
+    <picture>
+      <source type="image/webp" sizes="100vw" srcset="../img/page-clearance-800.webp 800w, ../img/page-clearance-1600.webp 1600w">
+      <img src="../img/page-clearance-800.jpg" sizes="100vw"
+           srcset="../img/page-clearance-800.jpg 800w, ../img/page-clearance-1600.jpg 1600w"
+           alt="Kozloviy kran konteynerni shtabel ustidan ko'taradi" width="800" height="333" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
+  <div class="pagehead__scrim"></div>
   <div class="topbar">
     <a class="logo" href="index.html">М·БРОКЕРС</a>
     <nav class="topnav" aria-label="Asosiy navigatsiya">
@@ -256,9 +268,9 @@
   </div>
 </footer>
 
-<script src="../config.js?v=16"></script>
-<script src="../analytics.js?v=16" defer></script>
-<script src="../form.js?v=16" defer></script>
-<script src="../sticky.js?v=16" defer></script>
+<script src="../config.js?v=17"></script>
+<script src="../analytics.js?v=17" defer></script>
+<script src="../form.js?v=17" defer></script>
+<script src="../sticky.js?v=17" defer></script>
 </body>
 </html>

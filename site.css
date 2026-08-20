@@ -209,6 +209,18 @@ img.is-broken{display:none}
 
 /* ---------- Внутренняя страница ---------- */
 .pagehead{background:var(--slate);color:#fff}
+/* Шапка внутренней страницы с картинкой. Заливка идёт слева направо,
+   как на первом экране главной: текст читается на любой картинке,
+   а правая часть кадра остаётся видимой. */
+.pagehead--media{position:relative;overflow:hidden}
+.pagehead__media{position:absolute;inset:0}
+.pagehead__media img{width:100%;height:100%;object-fit:cover;object-position:center}
+.pagehead__scrim{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(27,34,41,0.93) 0%,rgba(27,34,41,0.82) 46%,rgba(27,34,41,0.42) 100%)}
+.pagehead--media > .topbar,
+.pagehead--media > .crumbs,
+.pagehead--media > .pagehead__body{position:relative}
+.pagehead--media > .topbar{border-bottom-color:rgba(255,255,255,0.22)}
 .pagehead .topbar{border-bottom:1px solid rgba(255,255,255,0.18)}
 .pagehead__body{max-width:1280px;margin:0 auto;padding:56px var(--pad) 64px}
 .pagehead h1{margin:0 0 18px;font-size:clamp(38px,5.4vw,72px);line-height:1;font-weight:700;color:#fff;text-wrap:balance}
@@ -296,6 +308,11 @@ img.is-broken{display:none}
   .place__grid{grid-template-columns:1fr;gap:28px}
   .mapbox__links a{font-size:11px;letter-spacing:0.06em;padding:12px 4px}
   .pagehead__body{padding:40px var(--pad) 48px}
+  /* на узком экране заливка вертикальная: горизонтальная теряет смысл,
+     когда текст идёт во всю ширину */
+  .pagehead--media .pagehead__scrim{
+    background:linear-gradient(180deg,rgba(27,34,41,0.9) 0%,rgba(27,34,41,0.84) 55%,rgba(27,34,41,0.9) 100%)}
+  .pagehead--media .pagehead__media img{object-position:70% center}
   .contact__grid{padding:44px var(--pad) 12px}
   .cta__grid{padding:44px var(--pad)}
   .foot__grid{padding:44px var(--pad) 20px;gap:32px}
