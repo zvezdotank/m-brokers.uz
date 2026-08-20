@@ -78,6 +78,25 @@ h1,h2,h3{font-family:var(--display);text-transform:uppercase;letter-spacing:0.01
   font-weight:400;letter-spacing:0.14em;text-transform:uppercase}
 .topnav a{color:var(--on-dark-nav)}
 .topnav a:hover{color:var(--gold)}
+
+/* ---------- Выпадающее меню услуг ----------
+   Открывается по наведению и по фокусу с клавиатуры. Зона наведения
+   продлена вниз отрицательным полем, иначе курсор теряет меню
+   в зазоре между пунктом и списком. */
+.topnav__group{position:relative;display:inline-flex;padding-bottom:16px;margin-bottom:-16px}
+.subnav{position:absolute;top:100%;left:-16px;z-index:60;min-width:236px;
+  display:flex;flex-direction:column;padding:6px 0;
+  background:rgba(27,34,41,0.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.14);border-radius:4px;
+  opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity 0.16s ease,transform 0.16s ease,visibility 0.16s}
+.topnav__group:hover .subnav,
+.topnav__group:focus-within .subnav{opacity:1;visibility:visible;transform:translateY(0)}
+.subnav a{display:block;padding:11px 18px;font-size:13px;letter-spacing:0.06em;
+  text-transform:none;color:var(--on-dark-nav);white-space:nowrap}
+.subnav a:hover{background:rgba(255,255,255,0.08);color:var(--gold)}
+.subnav a[aria-current]{color:var(--gold)}
+@media (prefers-reduced-motion:reduce){.subnav{transition:none}}
 .topbar__tel{font-family:var(--display);font-size:22px;font-weight:500;letter-spacing:0.04em;color:#fff}
 .topbar__tel:hover{color:var(--gold)}
 
@@ -284,6 +303,13 @@ img.is-broken{display:none}
   .logo{font-size:21px}
   .topbar__tel{font-size:19px}
   .topnav{gap:8px 18px;font-size:13px;order:3;width:100%}
+  /* на телефоне выпадающее меню бессмысленно: показываем услуги
+     отдельной строкой прямо под пунктом */
+  .topnav__group{flex-basis:100%;display:block;padding-bottom:0;margin-bottom:0}
+  .subnav{position:static;opacity:1;visibility:visible;transform:none;
+    background:none;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;
+    padding:6px 0 0;min-width:0;flex-direction:row;flex-wrap:wrap;gap:4px 14px}
+  .subnav a{padding:2px 0;font-size:11.5px;letter-spacing:0.04em;color:var(--on-dark-label)}
   .topbar__right{gap:14px}
   .lang{font-size:12px}
   .lang__item{padding:4px 7px}

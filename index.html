@@ -28,7 +28,7 @@
 <link rel="preload" as="image" type="image/webp" fetchpriority="high"
   imagesrcset="img/hero-960.webp 960w, img/hero-1440.webp 1440w, img/hero-2000.webp 2000w"
   imagesizes="100vw" href="img/hero-1440.webp">
-<link rel="stylesheet" href="site.css?v=17">
+<link rel="stylesheet" href="site.css?v=18">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -131,10 +131,18 @@
     <div class="topbar">
       <a class="logo" href="/">М·БРОКЕРС</a>
       <nav class="topnav" aria-label="Основная навигация">
+      <a href="about.html">Компания</a>
+      <span class="topnav__group">
         <a href="services.html">Услуги</a>
-        <a href="about.html">Компания</a>
-        <a href="contacts.html">Контакты</a>
-      </nav>
+        <span class="subnav">
+          <a href="service-broker.html">Таможенный брокер</a>
+          <a href="service-clearance.html">Таможенное оформление</a>
+          <a href="service-certification.html">Сертификация</a>
+          <a href="service-warehouse.html">Складские услуги</a>
+        </span>
+      </span>
+      <a href="contacts.html">Контакты</a>
+    </nav>
       <div class="topbar__right">
       <div class="lang" role="group" aria-label="Язык">
         <span class="lang__item is-active" aria-current="true">RU</span>
@@ -400,9 +408,9 @@ document.querySelectorAll('img[data-slot]').forEach(function(img){
   if (img.complete) (img.naturalWidth ? fill : fail)();
 });
 </script>
-<script src="config.js?v=17"></script>
-<script src="analytics.js?v=17" defer></script>
-<script src="form.js?v=17" defer></script>
-<script src="sticky.js?v=17" defer></script>
+<script src="config.js?v=18"></script>
+<script src="analytics.js?v=18" defer></script>
+<script src="form.js?v=18" defer></script>
+<script src="sticky.js?v=18" defer></script>
 </body>
 </html>
