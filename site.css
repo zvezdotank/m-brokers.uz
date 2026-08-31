@@ -5,6 +5,18 @@
 @font-face{font-family:'Oswald';font-style:normal;font-weight:400 700;font-display:swap;src:url('fonts/oswald.woff2') format('woff2')}
 @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/inter.woff2') format('woff2')}
 
+/* Запасные шрифты с подогнанными метриками.
+   Oswald узкий: тот же текст в Arial занимает на 24% больше по ширине,
+   из-за этого заголовок переносился на лишнюю строку, а после загрузки
+   шрифта схлопывался обратно — вся шапка прыгала (CLS 0.261).
+   size-adjust уравнивает среднюю ширину знака, ascent и descent —
+   высоту строки. Числа посчитаны по самим файлам шрифтов.
+   Браузеры без поддержки size-adjust просто берут Arial как раньше. */
+@font-face{font-family:'Oswald fallback';src:local('Arial'),local('Helvetica'),local('Roboto');
+  size-adjust:80.75%;ascent-override:147.73%;descent-override:35.79%;line-gap-override:0%}
+@font-face{font-family:'Inter fallback';src:local('Arial'),local('Helvetica'),local('Roboto');
+  size-adjust:107.68%;ascent-override:89.96%;descent-override:22.40%;line-gap-override:0%}
+
 :root{
   --paper:#EDEFF1;
   --ink:#1B2229;
@@ -26,7 +38,7 @@
   --hover-tint:#E4E8EB;
   --hairline-dark:#313D47;
   --pad:44px;
-  --display:Oswald,system-ui,sans-serif;
+  --display:Oswald,'Oswald fallback',system-ui,sans-serif;
 }
 
 *{box-sizing:border-box}
@@ -35,7 +47,7 @@ body{
   margin:0;
   background:var(--paper);
   color:var(--ink);
-  font-family:Inter,system-ui,-apple-system,sans-serif;
+  font-family:Inter,'Inter fallback',system-ui,-apple-system,sans-serif;
   -webkit-font-smoothing:antialiased;
   font-variant-numeric:tabular-nums;
 }
@@ -379,10 +391,12 @@ img.is-broken{display:none}
 }
 
 /* ---------- Форма заявки ----------
-   Скрыта, пока в config.js не задан адрес обработчика: неработающая
-   форма хуже, чем её отсутствие. Класс is-ready вешает form.js. */
-.lead{display:none}
-.lead.is-ready{display:block}
+   Показана сразу: если бы она появлялась скриптом, в этот момент
+   всё под ней уезжало бы вниз — лишний сдвиг вёрстки. Класс is-off
+   вешает form.js, когда в config.js не задан адрес обработчика:
+   неработающая форма хуже, чем её отсутствие. */
+.lead{display:block}
+.lead.is-off{display:none}
 .leadblock{background:var(--slate);color:#fff}
 .leadblock__grid{max-width:1280px;margin:0 auto;padding:56px var(--pad);
   display:grid;grid-template-columns:minmax(280px,1fr) minmax(320px,1fr);gap:32px 56px;align-items:start}

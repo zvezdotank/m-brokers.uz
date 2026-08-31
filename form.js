@@ -6,7 +6,10 @@
   var endpoint = (window.MB && window.MB.formEndpoint || '').trim();
   var forms = document.querySelectorAll('.lead');
   if (!forms.length) return;
-  if (!endpoint) return;                     // остаётся display:none из CSS
+  if (!endpoint) {                           // обработчик не настроен — прячем
+    forms.forEach(function (f) { f.classList.add('is-off'); });
+    return;
+  }
 
   var uz = document.documentElement.lang === 'uz';
   var T = uz ? {
@@ -41,13 +44,11 @@
         : 'В рабочее время перезваниваем в течение 15 минут.') + '</p>';
     var copy = sample.cloneNode(true);
     copy.dataset.place = 'модальное окно';
-    copy.classList.remove('is-ready');
     dlg.appendChild(copy);
     document.body.appendChild(dlg);
     dlg.querySelector('.leadmodal__close').addEventListener('click', function () { dlg.close(); });
     dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
     bind(copy);
-    copy.classList.add('is-ready');
     return copy;
   }
 
@@ -62,7 +63,6 @@
   forms.forEach(bind);
 
   function bind(form) {
-    form.classList.add('is-ready');
     var btn = form.querySelector('button[type=submit]');
     var btnText = btn.textContent;
     var status = form.querySelector('.lead__status');
