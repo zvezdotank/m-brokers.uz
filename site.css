@@ -6,14 +6,17 @@
 @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/inter.woff2') format('woff2')}
 
 /* Запасные шрифты с подогнанными метриками.
-   Oswald узкий: тот же текст в Arial занимает на 24% больше по ширине,
+   Oswald узкий: заголовок первого экрана в Arial занимает на 34% больше
+   по ширине,
    из-за этого заголовок переносился на лишнюю строку, а после загрузки
    шрифта схлопывался обратно — вся шапка прыгала (CLS 0.261).
    size-adjust уравнивает среднюю ширину знака, ascent и descent —
-   высоту строки. Числа посчитаны по самим файлам шрифтов.
+   высоту строки. Числа посчитаны по самим файлам шрифтов, причём
+   Oswald калиброван по ПРОПИСНЫМ: на сайте он почти везде набирает
+   заглавные, и по ним расхождение падает с 8% до 1–2%.
    Браузеры без поддержки size-adjust просто берут Arial как раньше. */
 @font-face{font-family:'Oswald fallback';src:local('Arial'),local('Helvetica'),local('Roboto');
-  size-adjust:80.75%;ascent-override:147.73%;descent-override:35.79%;line-gap-override:0%}
+  size-adjust:75.83%;ascent-override:157.33%;descent-override:38.11%;line-gap-override:0%}
 @font-face{font-family:'Inter fallback';src:local('Arial'),local('Helvetica'),local('Roboto');
   size-adjust:107.68%;ascent-override:89.96%;descent-override:22.40%;line-gap-override:0%}
 
