@@ -18,6 +18,8 @@
 
   // Цели. Клик считаем в момент нажатия: переход по tel: уводит со страницы,
   // поэтому событие отправляем до того, как браузер откроет звонилку.
+  // Имена click_phone и click_telegram заданы системой Sales HUB —
+  // именно под ними там размечается «звонок». Не переименовывать.
   function track(name, params) {
     gtag('event', name, params || {});
   }
@@ -34,8 +36,8 @@
               : a.closest('.foot') ? 'подвал'
               : a.closest('.hero') ? 'первый экран' : 'страница';
 
-    if (href.indexOf('tel:') === 0) track('call_click', { placement: where });
-    else if (href.indexOf('t.me/') > -1) track('telegram_click', { placement: where });
+    if (href.indexOf('tel:') === 0) track('click_phone', { placement: where });
+    else if (href.indexOf('t.me/') > -1) track('click_telegram', { placement: where });
     else if (href.indexOf('mailto:') === 0) track('email_click', { placement: where });
   }, true);
 })();
