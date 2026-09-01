@@ -5,6 +5,12 @@ window.MB = {
   // Идентификатор Google Analytics 4, вида G-XXXXXXXXXX
   ga4: 'G-01CQLP8ZNP',
 
+  // Google Ads. Кабинет 297-906-6713. Пока ярлык пуст, конверсия в рекламу
+  // не отправляется — считает только GA4, ничего не ломается.
+  // Ярлык берётся из «Фрагмент кода события»: send_to: 'AW-.../ЯРЛЫК'.
+  aw: 'AW-18421307652',
+  awPhoneLabel: '',
+
   // Адрес обработчика заявок (Cloudflare Worker), который кладёт лид
   // в Telegram. Токен бота живёт внутри воркера, на сайт не попадает.
   formEndpoint: 'https://shy-mud-ccf2m-brokeruz.zvezdotank.workers.dev'
