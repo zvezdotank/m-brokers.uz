@@ -146,7 +146,7 @@ a.lang__item:hover{color:#fff;border-color:rgba(255,255,255,0.35)}
 .fact dd{margin:0;font-family:var(--display);font-size:21px;font-weight:500;color:#fff}
 
 /* ---------- Problems ---------- */
-.problems{padding:76px var(--pad) 40px;max-width:1280px;margin:0 auto}
+.problems{padding:76px var(--pad);max-width:1280px;margin:0 auto}
 .problems h2{margin:0 0 44px;font-size:clamp(30px,4vw,54px);line-height:1;font-weight:600;max-width:800px;text-wrap:balance}
 .problems__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:0 48px}
 .problem{padding:24px 0;border-top:3px solid var(--ink)}
@@ -156,7 +156,7 @@ a.lang__item:hover{color:#fff;border-color:rgba(255,255,255,0.35)}
 .problem p{margin:10px 0 0;font-size:16px;line-height:1.58;color:var(--muted);text-wrap:pretty}
 
 /* ---------- Services ---------- */
-.services{max-width:1280px;margin:0 auto;padding:40px var(--pad) 76px}
+.services{max-width:1280px;margin:0 auto;padding:76px var(--pad)}
 .services__head{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:baseline;justify-content:space-between;margin-bottom:12px}
 .services__head h2{margin:0;font-size:clamp(30px,4vw,54px);line-height:1;font-weight:600}
 .linkmore{font-family:var(--display);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;
@@ -337,9 +337,9 @@ img.is-broken{display:none}
   .callbtn__num{font-size:24px}
   .facts{grid-template-columns:1fr}
   .fact{padding:16px var(--pad)}
-  .problems{padding:56px var(--pad) 28px}
+  .problems{padding:56px var(--pad)}
   .problems h2{margin-bottom:28px}
-  .services{padding:28px var(--pad) 56px}
+  .services{padding:56px var(--pad)}
   /* документы в две колонки: сканы среднего качества, во всю ширину
      экрана видны все их дефекты */
   .docs{grid-template-columns:1fr 1fr;gap:10px}
